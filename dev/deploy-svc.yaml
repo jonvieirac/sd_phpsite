@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: videostream
-        image: jvieira22/videostream:107
+        image: jvieira22/videostream:1.107
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
