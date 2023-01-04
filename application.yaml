@@ -3,6 +3,12 @@ kind: Application
 metadata:
   name: videostream
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: jvieira22/videostream
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+    argocd-image-updater.argoproj.io/git-branch: main
 spec:
   project: default
 
@@ -14,12 +20,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: sdapp
 
-  syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
-    - Replace=true
-    - PruneLast=true
-    
+  syncPolicy: 
     automated:
       selfHeal: true
       prune: true
