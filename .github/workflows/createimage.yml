@@ -28,6 +28,8 @@ jobs:
         run: echo ${{ github.run_number }}
       - name: Output Run Attempt
         run: echo ${{ github.run_attempt }}
+      - name: Output BuildNumber
+        run: echo $BUILD_NUMBER
       - name: Build the Docker image
         run: 
           docker build -t videostream:1.${{ github.run_number }} .;
