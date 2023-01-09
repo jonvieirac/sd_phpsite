@@ -6,7 +6,7 @@ metadata:
   labels:
     app: videostream
 spec:
-  replicas: 10
+  replicas: 2
   selector:
     matchLabels:
       app: videostream
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: videostream
-        image: jvieira22/videostream:1.107
+        image: jvieira22/videostream:1.111
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
